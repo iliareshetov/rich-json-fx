@@ -3,6 +3,7 @@ package com.github.iliareshetov;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
+import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.model.StyleSpans;
 import org.fxmisc.richtext.model.StyleSpansBuilder;
 
@@ -47,8 +48,6 @@ public class RichJsonFX {
      * @return StyleSpans containing the highlighted tokens.
      */
     public StyleSpans<Collection<String>> highlight(String json) throws IOException {
-
-
         List<Match> matches = new ArrayList<>();
 
         JsonParser parser = jsonFactory.createParser(json);
@@ -84,6 +83,19 @@ public class RichJsonFX {
         }
 
         return spansBuilder.create();
+    }
+
+    /**
+     * Method to highlight JSON in a CodeArea.
+     *
+     * @param codeArea the CodeArea containing JSON text.
+     */
+    public void highlightCodeArea(CodeArea codeArea) throws IOException {
+        String text = codeArea.getText();
+        if (text != null && !text.isEmpty()) {
+            StyleSpans<Collection<String>> highlighting = highlight(text);
+            codeArea.setStyleSpans(0, highlighting);
+        }
     }
 
     public record Match(String kind, int start, int end) implements Comparable<Match> {
