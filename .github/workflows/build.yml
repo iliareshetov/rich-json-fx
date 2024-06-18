@@ -27,6 +27,13 @@ jobs:
         java-version: '21.0.3'
         distribution: 'temurin'
         cache: maven
+
+    - name: Display Java version
+      run: java -version
+
+    - name: Display Maven version
+      run: mvn -version
+        
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
