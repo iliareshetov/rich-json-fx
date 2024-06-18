@@ -27,6 +27,10 @@ jobs:
         java-version: '21.0.3'
         distribution: 'temurin'
         cache: maven
+        server-id: ossrh
+        server-username: MAVEN_USERNAME
+        server-password: MAVEN_PASSWORD
+        gpg-private-key: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
 
     - name: Display Java version
       run: java -version
@@ -34,14 +38,13 @@ jobs:
     - name: Display Maven version
       run: mvn -version
         
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-
-    - name: Release Maven package
-      uses: WasiqB/maven-publish-action@v1
-      with:
-        gpg_private_key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
-        gpg_passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-        nexus_username: ${{ secrets.OSSRH_USERNAME }}
-        nexus_password: ${{ secrets.OSSRH_TOKEN }}
-        maven_args:  -DreleaseVersion=${{ github.event.inputs.releaseVersion }}
+    - name: Publish to the Maven Central Repository
+      run: |
+          mvn \
+            --no-transfer-progress \
+            --batch-mode \
+            -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
+            deploy
+      env:
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
