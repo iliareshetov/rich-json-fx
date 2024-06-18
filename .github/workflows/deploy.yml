@@ -6,7 +6,7 @@ name: Deploy
 on:
   workflow_dispatch:
     inputs:
-      releaseversion:
+      releaseVersion:
         description: 'Release version'
         required: true
         default: '0.0.1'
@@ -41,6 +41,7 @@ jobs:
       uses: WasiqB/maven-publish-action@v1
       with:
         gpg_private_key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+        gpg_passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
         nexus_username: ${{ secrets.OSSRH_USERNAME }}
         nexus_password: ${{ secrets.OSSRH_TOKEN }}
         maven_args:  -DreleaseVersion=${{ github.event.inputs.releaseVersion }}
