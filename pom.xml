@@ -85,6 +85,22 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>fr.jcgay.maven.plugins</groupId>
+                <artifactId>depgraph-maven-plugin</artifactId>
+                <version>3.9.8</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>graph</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- Limit the depth of the dependency graph -->
+                    <depth>3</depth>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.3.1</version>
