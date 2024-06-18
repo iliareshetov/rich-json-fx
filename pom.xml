@@ -96,8 +96,11 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!-- Limit the depth of the dependency graph -->
-                    <depth>3</depth>
+                    <excludes>
+                        <exclude>org.openjfx:*</exclude>
+                        <exclude>org.junit.jupiter:*</exclude>
+                        <exclude>org.junit.platform:*</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
             <plugin>
