@@ -1,5 +1,6 @@
 [![Build](https://github.com/iliareshetov/rich-json-fx/actions/workflows/build.yml/badge.svg)](https://github.com/iliareshetov/rich-json-fx/actions/workflows/build.yml)
 [![Apache License](https://img.shields.io/github/license/iliareshetov/rich-json-fx)](https://github.com/iliareshetov/rich-json-fx/blob/main/LICENSE)
+![Maven metadata URL](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Frepo1.maven.org%2Fmaven2%2Fio%2Fgithub%2Filiareshetov%2Frich-json-fx%2Fmaven-metadata.xml)
 
 # JSON Highlighter with RichTextFX and Jackson
 
