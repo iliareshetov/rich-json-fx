@@ -3,6 +3,15 @@
 
 # JSON Highlighter with RichTextFX and Jackson
 
+```xml
+
+<dependency>
+    <groupId>io.github.iliareshetov</groupId>
+    <artifactId>rich-json-fx</artifactId>
+    <version>0.0.2</version>
+</dependency>
+```
+
 ## Overview
 This repository provides a Java-based application that renders highlighted JSON using the RichTextFX library for the text editor and Jackson for JSON parsing. 
 The application comes with predefined color schemes through a theme loader but allows for customization via CSS.
