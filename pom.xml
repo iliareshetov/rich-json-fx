@@ -85,9 +85,9 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>fr.jcgay.maven.plugins</groupId>
+                <groupId>com.github.ferstl</groupId>
                 <artifactId>depgraph-maven-plugin</artifactId>
-                <version>3.9.8</version>
+                <version>4.0.3</version>
                 <executions>
                     <execution>
                         <goals>
